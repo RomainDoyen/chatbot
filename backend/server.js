@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const fagRoutes = require("./routes/faqRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -10,6 +11,15 @@ const PORT = process.env.PORT || 5120;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+
+// Routes
+app.use("/api/faqs", fagRoutes);
+
+// Route par défaut (404)
+app.use((req, res) => {
+  res.status(404).json({ error: "Route non trouvée" });
+});
 
 // Connexion MySQL
 const db = mysql.createPool({
