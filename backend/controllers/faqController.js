@@ -13,6 +13,7 @@ const getFAQById = async (req, res) => {
     const { id } = req.params;
 
     try {
+        // @ts-ignore
         const [faq] = await FAQModel.getAll().where({ id });
         if (!faq) {
             return res.status(404).json({ error: "FAQ non trouvée." });

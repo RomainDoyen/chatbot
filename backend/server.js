@@ -16,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/faqs", fagRoutes);
+// app.use("/api/faqs/:id", fagRoutes);
 app.use("/api/requests", requestRoutes);
 
 // Route par défaut (404)

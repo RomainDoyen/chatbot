@@ -13,6 +13,7 @@ const getRequestById = async (req, res) => {
     const { id } = req.params;
 
     try {
+        // @ts-ignore
         const [request] = await RequestModel.getAll().where({ id });
         if (!request) {
             return res.status(404).json({ error: "Demande non trouvée." });
