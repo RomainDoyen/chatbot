@@ -3,6 +3,7 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fagRoutes = require("./routes/faqRoutes");
+const requestRoutes = require("./routes/requestRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/faqs", fagRoutes);
+app.use("/api/requests", requestRoutes);
 
 // Route par défaut (404)
 app.use((req, res) => {
