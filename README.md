@@ -2,6 +2,32 @@
 
 This is a simple chatbot that can answer questions.
 
+## Technologies
+
+- Node.js
+- Express.js
+- Knex.js
+- MySQL
+- ReactJS
+
+## API Endpoints
+
+### faqs
+
+- GET /api/faqs - Get all faqs
+- GET /api/faqs/:id - Get a faq by id
+- POST /api/faqs - Create a faq
+- PUT /api/faqs/:id - Update a faq
+- DELETE /api/faqs/:id - Delete a faq
+
+### requests
+
+- GET /api/requests - Get all requests
+- GET /api/requests/:id - Get a request by id
+- POST /api/requests - Create a request
+- PUT /api/requests/:id - Update a request
+- DELETE /api/requests/:id - Delete a request
+
 ## Backend
 
 ### create .env file
