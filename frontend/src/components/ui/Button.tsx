@@ -1,9 +1,4 @@
-type ButtonProps = {
-  className?: string;
-  onclick?: () => void;
-  text?: string;
-  icon?: React.ReactNode;
-};
+import { ButtonProps } from "../../types/types";
 
 const Button: React.FC<ButtonProps> = ({ 
   onclick, className, text, icon 
