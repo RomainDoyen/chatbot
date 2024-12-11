@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { fetchData } from "../utils/axios";
 import { MessageCircleWarning, SendHorizontal, X } from "lucide-react";
+import { useState } from "react";
+import { fetchData } from "../../utils/axios";
+import Button from "../ui/Button";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,40 +39,36 @@ const Chatbot = () => {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {!isOpen && (
-        <button
+        <Button
           className="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none"
-          onClick={() => setIsOpen(true)}
-        >
-          <MessageCircleWarning />
-        </button>
+          onclick={() => setIsOpen(true)}
+          icon={<MessageCircleWarning />}
+        />
       )}
 
       {isOpen && (
         <div className="bg-white shadow-lg rounded-lg w-80 h-96 flex flex-col">
           <div className="bg-blue-500 text-white py-2 px-4 flex justify-between items-center rounded-t-lg">
             <span className="font-bold">Chatbot</span>
-            <button
-              onClick={() => setIsOpen(false)}
+            <Button
+              onclick={() => setIsOpen(false)}
+              icon={<X />}
               className="text-white hover:text-gray-200 focus:outline-none"
-            >
-              <X />
-            </button>
+            />
           </div>
 
           <div className="flex-1 overflow-y-auto p-4">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`mb-2 ${
-                  msg.sender === "user" ? "text-right" : "text-left"
-                }`}
+                className={`mb-2 ${msg.sender === "user" ? "text-right" : "text-left"
+                  }`}
               >
                 <div
-                  className={`inline-block px-4 py-2 rounded-lg ${
-                    msg.sender === "user"
+                  className={`inline-block px-4 py-2 rounded-lg ${msg.sender === "user"
                       ? "bg-blue-500 text-white"
                       : "bg-gray-200 text-gray-800"
-                  }`}
+                    }`}
                 >
                   {msg.text}
                 </div>
@@ -87,12 +84,11 @@ const Chatbot = () => {
               className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Posez votre question..."
             />
-            <button
-              onClick={sendMessage}
+            <Button
+              onclick={sendMessage}
+              icon={<SendHorizontal />}
               className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            >
-              <SendHorizontal />
-            </button>
+            />
           </div>
         </div>
       )}
