@@ -1,10 +1,4 @@
-type InputProps = {
-  type?: "text" | "password" | "email" | "number" | "tel";
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  className?: string;
-}
+import { InputProps } from "../../types/types";
 
 const Input: React.FC<InputProps> = ({
   type = "text",
