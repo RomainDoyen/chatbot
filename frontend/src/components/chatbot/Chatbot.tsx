@@ -2,6 +2,7 @@ import { MessageCircleWarning, SendHorizontal, X } from "lucide-react";
 import { useState } from "react";
 import { fetchData } from "../../utils/axios";
 import Button from "../ui/Button";
+import Input from "../ui/Input";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,10 +78,10 @@ const Chatbot = () => {
           </div>
 
           <div className="mt-4 p-4 flex">
-            <input
+            <Input
               type="text"
               value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
+              onChange={setUserInput}
               className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Posez votre question..."
             />
